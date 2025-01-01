@@ -37,17 +37,11 @@
         const contestTimesData = [386, 189, 70];
         const contestProblemData = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
-        let problemAlphabet = true;
-
-        const links = [
-            "https://www.example1.com",
-            "https://www.example2.com",
-            "https://www.example3.com"
-        ];
-
         document.getElementById("randomLinkButton").addEventListener("click", function() {
             let contestNameSelect = Math.floor(Math.random() * contestNameData.length);
             let contestTimesSelect = Math.floor(Math.random() * contestTimesData[contestNameSelect]) + 1;
+
+            let problemAlphabet = true;
 
             let contestProblemSelect = 1;
             if(contestNameSelect == 0)
