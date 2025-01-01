@@ -124,8 +124,6 @@
             let contestTimesNameDef = contestNameData[contestNameSelect] + ('000'+contestTimesSelect ).slice(-3);
             let selectURL = "https://atcoder.jp/contests/" + contestTimesNameDef + "/tasks/" + contestTimesNameDef + "_" + problemIndex;
 
-            const randomIndex = Math.floor(Math.random() * links.length);
-            // window.location.href = selectURL;
             open(selectURL);
         });
     </script>
