@@ -4,6 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ランダムリンクボタン</title>
+    <style>
+      body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          font-family: Arial, sans-serif;
+      }
+      button {
+          padding: 20px 40px;
+          font-size: 20px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+      }
+      button:hover {
+          background-color: #45a049;
+      }
+    </style>
 </head>
 <body>
     <button id="randomLinkButton">ランダムリンク</button>
@@ -53,7 +76,7 @@
               }
               else if(contestTimesSelect <= 103)
               {
-                contestProblemSelect = Math.floor(Math.random() * 4) + 2;
+                contestProblemSelect = Math.floor(Math.random() * 4);
               }
               else if(contestTimesSelect <= 183)
               {
