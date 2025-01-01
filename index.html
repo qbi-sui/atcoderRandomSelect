@@ -1,11 +1,91 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>Button Link Sample</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランダムリンクボタン</title>
 </head>
 <body>
-  <a href="sample.html" class="btn">サンプル</a>
+    <button id="randomLinkButton">ランダムリンク</button>
+
+    <script>
+
+        const contestNameData = ["abc", "arc", "agc"];
+        const contestTimesData = [386, 189, 70];
+        const contestProblemData = ["a", "b", "c", "d", "e", "f", "g", "h"];
+
+
+        const links = [
+            "https://www.example1.com",
+            "https://www.example2.com",
+            "https://www.example3.com"
+        ];
+
+        document.getElementById("randomLinkButton").addEventListener("click", function() {
+            let contestNameSelect = Math.floor(Math.random() * contestNameData.length);
+            let contestTimesSelect = Math.floor(Math.random() * contestTimesData[contestNameSelect]) + 1;
+
+            let contestProblemSelect = 1;
+            if(contestNameSelect == 0)
+            {
+              if(contestTimesSelect <= 125)
+              {
+                contestProblemSelect = Math.floor(Math.random() * 4);
+              }
+              else if(contestTimesSelect <= 211)
+              {
+                contestProblemSelect = Math.floor(Math.random() * 6);
+              }
+              else if(contestTimesSelect <= 318)
+              {
+                contestProblemSelect = Math.floor(Math.random() * 8);
+              }
+              else if(contestTimesSelect <= 386)
+              {
+                contestProblemSelect = Math.floor(Math.random() * 7);
+              }
+            }
+            else if(contestNameSelect == 1)
+            {
+              if(contestTimesSelect <= 57)
+              {
+                contestProblemSelect = Math.floor(Math.random() * 4);
+              }
+              else if(contestTimesSelect <= 103)
+              {
+                contestProblemSelect = Math.floor(Math.random() * 4) + 2;
+              }
+              else if(contestTimesSelect <= 183)
+              {
+                contestProblemSelect = Math.floor(Math.random() * 6);
+              }
+              else if(contestTimesSelect <= 189)
+              {
+                contestProblemSelect = Math.floor(Math.random() * 5);
+              }
+            }
+            else if(contestNameSelect == 2)
+            {
+              if(contestTimesSelect == 9)
+              {
+                contestProblemSelect = Math.floor(Math.random() * 5);
+              }
+              else if(contestTimesSelect <= 66)
+              {
+                contestProblemSelect = Math.floor(Math.random() * 6);
+              }
+              else if(contestTimesSelect <= 70)
+              {
+                contestProblemSelect = Math.floor(Math.random() * 5);
+              }
+            }
+
+            let contestTimesNameDef = contestNameData[contestNameSelect] + ('000'+contestTimesSelect ).slice(-3);
+            let selectURL = "https://atcoder.jp/contests/" + contestTimesNameDef + "/tasks/" + contestTimesNameDef + "_" + contestProblemData[contestProblemSelect];
+
+            const randomIndex = Math.floor(Math.random() * links.length);
+            window.location.href = selectURL;
+        });
+    </script>
 </body>
 </html>
